@@ -1,4 +1,12 @@
+#!/bin/bash
+yum update -y
+yum install -y httpd
+systemctl start httpd
+systemctl enable httpd
+
+echo "
 <html>
+
 
     <head>
 
@@ -8,8 +16,8 @@
 
     <body>
 
-        This page has been deployed in the {{ Env }} environment1!
+        This page has been deployed in the {{ Env }} environment!
 
     </body>
 
-</html>
+</html> " > /var/www/html/index.html
